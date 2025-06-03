@@ -1,0 +1,35 @@
+.button {
+  padding: 10px 14px;
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.name {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.number {
+  color: #555;
+  margin-bottom: 8px;
+}
+.contactCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 450px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+}
+.infoBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
