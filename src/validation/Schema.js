@@ -6,7 +6,7 @@ export const loginValidationSchema = Yup.object({
     .required("Required field!"),
 
     password : Yup.string()
-    .min("Password must be at least 4 characters")
+    .min(4,"Password must be at least 4 characters")
     .required("Required field!"),
 });
 export const registrationValidationSchema = Yup.object({

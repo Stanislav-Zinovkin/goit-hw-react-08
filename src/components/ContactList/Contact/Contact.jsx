@@ -7,7 +7,9 @@ import { deleteContact } from "../../../redux/contacts/operations";
 const Contact = ({ data: { id, name, number }}) => {
   const dispatch = useDispatch();
   const handleDelete = () => {
-    dispatch(deleteContact(id));
+    if (window.confirm(`Delete contact ${name}?`)) {
+      dispatch(deleteContact(id));
+    }
   };
   return (
     <div className={styles.contactCard}>
@@ -16,7 +18,7 @@ const Contact = ({ data: { id, name, number }}) => {
         <p className={styles.name}>{name}</p>
         <p className={styles.number}>{number}</p>
       </div>
-      <button onClick={handleDelete} className={styles.button}>
+      <button type="button" onClick={handleDelete} className={styles.button}>
         Delete
       </button>
     </div>

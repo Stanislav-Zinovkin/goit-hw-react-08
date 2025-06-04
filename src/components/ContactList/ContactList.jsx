@@ -4,7 +4,7 @@ import styles from "./ContactList.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteContact } from  "../../redux/contacts/operations";
 import { selectFilteredContacts } from "../../redux/contacts/slice";
-import { createSelector } from "@reduxjs/toolkit";
+
 
 const ContactList = () => {
   
@@ -13,6 +13,9 @@ const ContactList = () => {
   const handleDelete = (id) => {
     dispatch(deleteContact(id));
   };
+  if (filteredContacts.length === 0) {
+    return <p className={styles.emptyMessage}>No contacts found.</p>;
+  }
   return (
     <>
       <ul className={styles.contactList}>

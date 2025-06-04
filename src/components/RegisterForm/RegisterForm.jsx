@@ -3,10 +3,14 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { registrationValidationSchema } from "../../validation/Schema";
 import styles from "./RegisterForm.module.css"
 import { useDispatch } from "react-redux";
+import { useId } from "react";
 import { register } from "../../redux/auth/operations";
 
 const RegisterForm = () => {
     const dispatch = useDispatch();
+    const nameFieldId = useId();
+    const emailFieldId = useId();
+    const passwordFieldId = useId();
 
     const handleSubmit = async(values, {resetForm}) => {
         try{

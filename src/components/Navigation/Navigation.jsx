@@ -7,13 +7,14 @@ const Navigation = () => {
 
     return (
         <nav>
-            <NavLink className={styles.link}>Home</NavLink>
+            <NavLink className={styles.link} to="/">Home</NavLink>
             {isLoggedIn && (
                 <NavLink className={styles.link} to="/contacts">
                     Contacts
                 </NavLink>
             )}
-            <NavLink className={styles.link}>About Us</NavLink>
+            <NavLink className={styles.link} to="/about">About Us</NavLink>
         </nav>
     );
 };
+export default Navigation;

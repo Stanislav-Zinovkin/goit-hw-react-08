@@ -3,10 +3,10 @@ import Contactform from "./components/ContactForm";
 import ContactList from "./components/ContactList/ContactList";
 import SearchBox from "./components/SearchBox";
 import Loader from "./components/Loader";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import {  Routes, Route } from 'react-router-dom';
+import { useEffect, lazy, Suspense } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from "./redux/contacts/operations";
-import { useSelector } from "react-redux";
 import { selectLoading, selectError } from "./redux/contacts/selectors";
 
 const HomePage = lazy(() => import("../src/pages/Home/HomePage"));
@@ -26,6 +26,15 @@ function App() {
   }, [dispatch])
   return (
     <div className="container">
+      <Suspense fallback={<div>Loading...</div>}>
+      <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/register" element={<RegistrationPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/about" element={<AboutUsPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+      </Suspense>
       <h1>Phonebook</h1>
       <Contactform />
       <SearchBox />
