@@ -20,19 +20,18 @@ function App() {
   
   return (
     <div className="container">
-      <GoBackBtn/>
+      
       <AppBar />
       <Suspense fallback={<div><Loader/></div>}>
       
       <Routes>
             <Route path="/" element={<HomePage />} />
             <Route
-    path="/register"
-    element={
-      <RestrictedRoute redirectTo="/contacts" component={RegistrationPage} />
-    } />
-          
-          <Route
+                 path="/register"
+                       element={
+                 <RestrictedRoute redirectTo="/contacts" component={RegistrationPage} />
+                 } />
+            <Route
     path="/login"
     element={
       <RestrictedRoute redirectTo="/contacts" component={LoginPage} />

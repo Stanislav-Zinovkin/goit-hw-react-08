@@ -36,17 +36,33 @@
 
 .button {
   padding: 10px 14px;
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  background: linear-gradient(270deg, #6e8efb, #a777e3, #fcb045, #6e8efb);
+  background-size: 600% 600%;
   color: white;
   border: none;
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.2s ease;
+  animation: none;
 }
 
-.button:hover {
+.button:hover,
+.button:focus {
   transform: scale(1.03);
+  animation: gradientShift 4s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .error {

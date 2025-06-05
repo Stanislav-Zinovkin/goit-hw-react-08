@@ -7,7 +7,7 @@ axios.defaults.baseURL = "https://connections-api.goit.global/";
 export const register = createAsyncThunk("auth/register",
     async(credentials, thunkAPI) => {
         try{
-            const res = await axios.post("/users/signup", credentials);
+            const res = await axios.post("users/signup", credentials);
             setAuthHeader(res.data.token);
             return res.data;
             } catch (error) {
@@ -19,7 +19,7 @@ export const login = createAsyncThunk(
     "auth/login",
     async(credentials, thunkAPI) => {
         try{
-            const res = await axios.post("/users/login", credentials);
+            const res = await axios.post("users/login", credentials);
             setAuthHeader(res.data.token);
             return res.data;
         }catch (error) {
@@ -31,7 +31,7 @@ export const logOut = createAsyncThunk(
     "auth/logout",
     async(_, thunkAPI) => {
         try{
-            const res = await axios.post("/users/logout");
+            const res = await axios.post("users/logout");
             clearAuthHeader();
             return
         }catch (error) {
@@ -45,11 +45,11 @@ export const refreshUser = createAsyncThunk(
         const state = thunkAPI.getState();
         const persistedToken = state.auth.token;
         if (persistedToken === null) {
-            return thunkAPI.rejectWithValue("Unable to fetch user");
+            return thunkAPI.rejectWithValue("Can't fetch user");
         }
         try {
             setAuthHeader(persistedToken);
-            const res = await axios.get("/users/me");
+            const res = await axios.get("users/me");
             return res.data;
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);

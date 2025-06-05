@@ -22,7 +22,7 @@ export default function ContactPage() {
          </Helmet>
         <ContactForm />
         <SearchBox />
-        <>{isLoading && <Loader />}</>
+        {isLoading && <Loader />}
         <ContactList />
         </>
     );

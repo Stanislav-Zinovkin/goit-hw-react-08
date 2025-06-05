@@ -1,0 +1,20 @@
+.body, #root {
+    min-height: 100vh;
+    
+    background: linear-gradient(270deg, #6e8efb, #a777e3, #fcb045, #6e8efb);
+    background-size: 600% 600%;
+    animation: gradientAnimation 20s ease infinite;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+}
