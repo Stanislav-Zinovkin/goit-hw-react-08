@@ -13,6 +13,7 @@ const RegisterForm = () => {
     const passwordFieldId = useId();
 
     const handleSubmit = async(values, {resetForm}) => {
+        console.log("handleSubmit called", values);
         try{
             await dispatch(register(values)).unwrap();
             console.log("register success");
@@ -30,7 +31,7 @@ const RegisterForm = () => {
             onSubmit={handleSubmit}
             >
                 <Form className={styles.form}>
-                    <label htmlFor={emailFieldId} className={styles.label}>Username</label>
+                    <label htmlFor={nameFieldId} className={styles.label}>Username</label>
                     <Field type="text" name="name" className={styles.input}/>
                     <ErrorMessage component="span" name="name" className={styles.error}/>
                     <label htmlFor={emailFieldId} className={styles.label}>Email</label>

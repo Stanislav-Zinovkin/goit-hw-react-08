@@ -18,7 +18,7 @@ export default function ContactPage() {
     return(
         <>
         <Helmet>
-           <title>Your contacts</title>
+           <title>Contacts</title>
          </Helmet>
         <ContactForm />
         <SearchBox />
