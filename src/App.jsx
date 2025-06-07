@@ -7,12 +7,12 @@ import { PrivateRoute } from "./components/PrivateRoute";
 import { RestrictedRoute } from "./components/RestrictedRoute";
 import Loader from "./components/Loader/Loader";
 import GoBackBtn from "./components/GoBackBtn/GoBackBtn";
-const HomePage = lazy(() => import("../src/pages/Home/HomePage"));
-const RegistrationPage = lazy(()=> import('../src/pages/Registration/RegistrationPage'));
-const LoginPage =lazy(()=> import ("../src/pages/LogIn/LogInPage")) ;
-const AboutUsPage = lazy(() => import('../src/pages/AboutUs/AboutUsPage'));
-const ContactPage = lazy(() => import('../src/pages/ContactPage/ContactPage'));
-const NotFoundPage = lazy(() => import('../src/pages/NotFoundPage/NotFoundPage'));
+const HomePage = lazy(() => import("./pages/Home/HomePage"));
+const RegistrationPage = lazy(()=> import('./pages/Registration/RegistrationPage'));
+const LoginPage =lazy(()=> import ("./pages/LogIn/LogInPage")) ;
+const AboutUsPage = lazy(() => import('./pages/AboutUs/AboutUsPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage/ContactPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
 
 function App() {
   
@@ -28,19 +28,19 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route
                  path="/register"
-                       element={
+                    element={
                  <RestrictedRoute redirectTo="/contacts" component={RegistrationPage} />
                  } />
             <Route
-    path="/login"
-    element={
+              path="/login"
+                  element={
       <RestrictedRoute redirectTo="/contacts" component={LoginPage} />
     }/>
   
             <Route path="/about" element={<AboutUsPage />} />
             <Route
-    path="/contacts"
-    element={
+              path="/contacts"
+                  element={
       <PrivateRoute redirectTo="/login" component={ContactPage} />
     }/>
   

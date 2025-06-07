@@ -11,6 +11,7 @@ const initialState = {
       token: null,
       isLoggedIn: false,
       isRefreshing: false,
+      error: null,
 };
 const authSlice = createSlice({
   name: "auth",

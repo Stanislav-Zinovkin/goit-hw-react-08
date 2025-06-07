@@ -7,8 +7,10 @@ axios.defaults.baseURL = "https://connections-api.goit.global/";
 export const register = createAsyncThunk("auth/register",
     async(credentials, thunkAPI) => {
         try{
-            const res = await axios.post("users/signup", credentials);
-            setAuthHeader(res.data.token);
+            const res = await axios.post("/users/signup", credentials);
+            console.log("Response status", res.status);
+            console.log("Response data", res.data)
+            //setAuthHeader(res.data.token);
             return res.data;
             } catch (error) {
                 return thunkAPI.rejectWithValue(error.message);
@@ -19,10 +21,11 @@ export const login = createAsyncThunk(
     "auth/login",
     async(credentials, thunkAPI) => {
         try{
-            const res = await axios.post("users/login", credentials);
+            const res = await axios.post("/users/login", credentials);
             setAuthHeader(res.data.token);
             return res.data;
         }catch (error) {
+            console.log("Error in register thunk:", error.res?.data || error.message);
             return thunkAPI.rejectWithValue(error.message);
         }
     }
@@ -31,7 +34,7 @@ export const logOut = createAsyncThunk(
     "auth/logout",
     async(_, thunkAPI) => {
         try{
-            const res = await axios.post("users/logout");
+            await axios.post("/users/logout");
             clearAuthHeader();
             return
         }catch (error) {
