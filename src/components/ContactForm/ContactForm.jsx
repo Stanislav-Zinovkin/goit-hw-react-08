@@ -40,12 +40,12 @@ const ContactForm = ( ) => {
         <label htmlFor={nameFieldId} className={styles.label}>
           Name
         </label>
-        <Field type="text" name="name" className={styles.input} />
+        <Field id={nameFieldId} type="text" name="name" className={styles.input} />
         <ErrorMessage name="name" component="span" className={styles.error} />
         <label htmlFor={numFieldId} className={styles.label}>
           Number
         </label>
-        <Field type="tel" name="number" className={styles.input} />
+        <Field id={numFieldId} type="tel" name="number" className={styles.input} />
         <ErrorMessage name="number" component="span" className={styles.error} />
         <button type="submit" className={styles.button}>
           Add Contact

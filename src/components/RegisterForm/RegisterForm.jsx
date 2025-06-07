@@ -12,16 +12,13 @@ const RegisterForm = () => {
     const emailFieldId = useId();
     const passwordFieldId = useId();
 
-    const handleSubmit = async(values, {resetForm}) => {
+    const handleSubmit = (values, {resetForm}) => {
         console.log("handleSubmit called", values);
-        try{
-            await dispatch(register(values)).unwrap();
+            dispatch(register(values)).unwrap();
             console.log("register success");
             resetForm();
-        }catch(error){
-            console.log("register failed");
         }
-    }
+    
 
 
     return (

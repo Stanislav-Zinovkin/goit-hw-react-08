@@ -11,12 +11,12 @@ const LoginForm = () => {
     const emailFieldId = useId();
     const passwordFieldId = useId();
 
-const handleSubmit = async(values, {resetForm}) => {
-    try {
-        await dispatch(login(values)).unwrap();
+const handleSubmit = (values, {resetForm}) => {
+    
+        dispatch(login(values)).unwrap();
         console.log("login success");
         resetForm();
-    }catch{console.log("login failed");}
+    
    
 };
 
