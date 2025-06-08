@@ -1,18 +1,19 @@
 .goBackBtn {
-    position: sticky;
+    margin-top: 10px ;
+    margin-left: 40px;
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #f4f4f4;
     color: #333;
     border: none;
-    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: width 0.3s ease, opacity 0.3s ease;
   }
   
   .goBackBtn:hover {
-    background-color: #e2e2e2;
-    color: #333;
+   backdrop-filter: blur(10px);
+   color: #333;
   }
   
   .goBackBtn:focus {

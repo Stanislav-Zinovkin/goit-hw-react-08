@@ -8,12 +8,13 @@ const SearchBox = () => {
   const filterValue = useSelector(state => state.filters.name);
   const handleChange = (event) => {dispatch(changeFilter(event.target.value));};
   return (
-    <div>
-      <p className={styles.descr}>Search contact by name</p>
+    <div className={styles.searchContainer}>
+      <div className={styles.icon}>🔍</div>
       <input
         type="text"
         value={filterValue}
         onChange={handleChange}
+        placeholder="Search your contact.."
         className={styles.input}
       />
     </div>
